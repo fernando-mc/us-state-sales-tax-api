@@ -18,8 +18,7 @@ functions:
     events:
       - http:
           path: state/{id}
-          integration: lambda
-          method: post
+          method: get
           cors: true
 
 package:

@@ -1,4 +1,6 @@
-states = {
+import json
+
+STATES = {
     "AL": ["Alabama", "4.000"],
     "AK": ["Alaska", "0.000"],
     "AZ": ["Arizona", "5.600"],
@@ -52,7 +54,14 @@ states = {
     "DC": ["District of Columbia", "5.750"]
 }
 
-def handler(event, context):
-    print(event)
-    print(states[event['id']][1])
-    return states[event['id']][1]
+def get(event, context):
+    state = event['pathParameters']['id']
+    tax = STATES[state][1]
+    data = {state: tax}
+    response = {
+        "statusCode": 200,
+        "body": json.dumps(
+            data
+        )
+    }
+    return response
