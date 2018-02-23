@@ -25,3 +25,10 @@ package:
   exclude:
     - LICENSE
     - .env/**
+
+plugins:
+  - serverless-finch
+
+custom:
+  client:
+    bucketName: us-state-sales-tax-api
